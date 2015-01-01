@@ -1,0 +1,25 @@
+<div ng-controller="ShowController">
+  <super-navbar>
+    <super-navbar-title>
+      Details
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+    <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+    <div ng-hide="showSpinner">
+      <h3 ng-bind="tasklist['note']"></h3>
+      <p>Completed: <span ng-bind="tasklist['status']"></span></p> 
+
+      <super-modal-show location="tasklist#edit?id={{ tasklist.id }}">
+        <button class="button button-block button-positive">
+          Edit
+        </button>
+      </super-modal-show>
+
+      <button ng-click="remove(tasklist.id)" class="button button-block button-negative">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
