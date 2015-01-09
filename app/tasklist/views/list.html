@@ -1,12 +1,13 @@
-<div ng-controller="IndexController">
+<div ng-controller="ListController">
   <super-navbar>
     <super-navbar-title>
-      My Tasks
+      Completed Tasks
     </super-navbar-title>
   </super-navbar>
 
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner">
+  
     <ul class="list" ng-hide="tasklists.length == 0">
       <super-navigate location="tasklist#show" data-params-id="{{ tasklist.id }}" ng-repeat="tasklist in tasklists">
         <li class="item item-icon-right">

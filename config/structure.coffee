@@ -17,7 +17,7 @@ module.exports =
     {
       title: "Done/Expired"
       id: "expired"
-      location: "tasklist#show"
+      location: "tasklist#list"
     }
   ]
 
