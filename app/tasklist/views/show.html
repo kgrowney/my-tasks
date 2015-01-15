@@ -8,21 +8,48 @@
   <div class="padding">
     <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
     <div ng-hide="showSpinner">
-      <h3>Task: <span ng-bind="tasklist['note']"></span></h3>
-      
-       <p>Completed: <span ng-bind="tasklist['status']"></span></p>
-      
-        <button class="button button-block icon-right super-checkmark button-balanced">Completed</button>
+       <h3>Task: 
+          <span ng-bind="tasklist['note']"></span>
+       </h3>
 
-        <super-modal-show location="tasklist#edit?id={{ tasklist.id }}">
+       <ul class="list">
+          <li class="item item-checkbox">
+            <label class="checkbox">
+              <input type="checkbox" ng-model="tasklist['status']">
+            </label>
+            TASK COMPLETE
+          </li>
+       </ul>
+
+      <super-modal-show location="tasklist#edit?id={{ tasklist.id }}">
         <button class="button button-block button-positive">
           Edit
         </button>
       </super-modal-show>
 
-      <button ng-click="remove(tasklist.id)" class="button button-block button-negative">
-        Remove
-      </button>
+        <button ng-click="remove(tasklist.id)" class="button button-block button-negative">
+          Remove
+        </button>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+      
+        <div ng-show="tasklist['status']">
+        <button class="button button-full button-large icon-right super-checkmark button-balanced">Completed</button>
+        </div>
+
+        <div ng-hide="tasklist['status']">
+        <button class="button button-full button-large icon-right super-close button-assertive">Not Completed</button>
+        </div>
+
+
+
+      
     </div>
   </div>
 </div>

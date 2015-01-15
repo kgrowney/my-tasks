@@ -9,7 +9,8 @@
   <div ng-hide="showSpinner">
   
     <ul class="list" ng-hide="tasklists.length == 0">
-      <super-navigate location="tasklist#show" data-params-id="{{ tasklist.id }}" ng-repeat="tasklist in tasklists">
+       <super-navigate location="tasklist#show" data-params-id="{{ tasklist.id }}" ng-repeat="tasklist in tasklists | filter: {status:true}">
+       
         <li class="item item-icon-right">
           <span ng-bind="tasklist['note']"></span>
           <i class="icon super-ios7-arrow-right"></i>

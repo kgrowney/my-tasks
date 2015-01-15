@@ -1,4 +1,4 @@
-<div ng-controller="IndexController">
+ <div ng-controller="IndexController">
   <super-navbar>
     <super-navbar-title>
       My Tasks
@@ -7,6 +7,9 @@
 
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner">
+  <div class="item item-divider">
+    UNCOMPLETED TASKS
+  </div>
     <ul class="list" ng-hide="tasklists.length == 0">
       <super-navigate location="tasklist#show" data-params-id="{{ tasklist.id }}" ng-repeat="tasklist in tasklists">
         <li class="item item-icon-right">
