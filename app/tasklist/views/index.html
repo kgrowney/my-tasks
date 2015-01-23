@@ -10,8 +10,23 @@
   <div class="item item-divider">
     UNCOMPLETED TASKS
   </div>
-    <ul class="list" ng-hide="tasklists.length == 0">
-      <super-navigate location="tasklist#show" data-params-id="{{ tasklist.id }}" ng-repeat="tasklist in tasklists">
+      
+      <super-navigate location="tasklist#show" data-params-id="{{ tasklist.id }}" ng-repeat="tasklist in tasklists | filter: {status:false}" test="{{oldTask(tasklist)}}"> 
+      
+        <li class="item item-icon-right">
+          <span ng-bind="tasklist['note']"></span>
+          <i class="icon super-ios7-arrow-right"></i>
+        </li>
+      </super-navigate>
+
+    </ul>
+
+    <div class="item item-divider">
+   COMPLETED TASKS
+  </div>
+      
+      <super-navigate location="tasklist#show" data-params-id="{{ tasklist.id }}" ng-repeat="tasklist in tasklists | filter: {status:true}">
+      
         <li class="item item-icon-right">
           <span ng-bind="tasklist['note']"></span>
           <i class="icon super-ios7-arrow-right"></i>
@@ -25,4 +40,5 @@
     </h4>
 
   </div>
-</div>
+</div>  
+

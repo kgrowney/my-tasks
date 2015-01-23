@@ -11,11 +11,17 @@
        <h3>Task: 
           <span ng-bind="tasklist['note']"></span>
        </h3>
+       <h5>Created:
+          <span ng-bind="tasklist['created_at']"></span>
+       </h5>
+       <h5>Priority:
+          <span ng-bind="tasklist['priority']"></span>
+       </h5>
 
        <ul class="list">
           <li class="item item-checkbox">
             <label class="checkbox">
-              <input type="checkbox" ng-model="tasklist['status']">
+              <input type="checkbox" ng-click="markComplete()">
             </label>
             TASK COMPLETE
           </li>
@@ -27,12 +33,12 @@
         </button>
       </super-modal-show>
 
+
+
         <button ng-click="remove(tasklist.id)" class="button button-block button-negative">
           Remove
         </button>
 
-        <br>
-        <br>
         <br>
         <br>
         <br>

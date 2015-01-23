@@ -31,4 +31,11 @@ angular
         supersonic.ui.layers.pop();
       });
     }
+
+    $scope.markComplete = function () {
+      Tasklist.find(steroids.view.params.id).then( function (tasklist) {
+        tasklist.status = true;
+        tasklist.save();
+      });
+    }
   });
