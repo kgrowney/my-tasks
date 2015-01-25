@@ -11,7 +11,7 @@
     UNCOMPLETED TASKS
   </div>
       
-      <super-navigate location="tasklist#show" data-params-id="{{ tasklist.id }}" ng-repeat="tasklist in tasklists | filter: {status:false}" test="{{oldTask(tasklist)}}"> 
+      <super-navigate location="tasklist#show" data-params-id="{{ tasklist.id }}" ng-repeat="tasklist in tasklists | filter: {status:false}" ng-if="!newTask(tasklist)"> 
       
         <li class="item item-icon-right">
           <span ng-bind="tasklist['note']"></span>
