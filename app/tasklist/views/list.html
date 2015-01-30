@@ -1,13 +1,31 @@
 <div ng-controller="ListController">
   <super-navbar>
     <super-navbar-title>
-      Completed Tasks
+      Completed / Expired Tasks
     </super-navbar-title>
   </super-navbar>
 
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner">
-  
+
+  <div class="item item-divider">
+    UNCOMPLETED TASKS
+  </div>
+      
+      <super-navigate location="tasklist#show" data-params-id="{{ tasklist.id }}" ng-repeat="tasklist in tasklists | filter: {status:false}" ng-if="!newTask(tasklist)"> 
+      
+        <li class="item item-icon-right">
+          <span ng-bind="tasklist['note']"></span>
+          <i class="icon super-ios7-arrow-right"></i>
+        </li>
+      </super-navigate>
+
+    </ul>
+
+     <div class="item item-divider">
+    COMPLETED TASKS
+  </div>
+
     <ul class="list" ng-hide="tasklists.length == 0">
        <super-navigate location="tasklist#show" data-params-id="{{ tasklist.id }}" ng-repeat="tasklist in tasklists | filter: {status:true}">
        
